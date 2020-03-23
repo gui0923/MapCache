@@ -38,9 +38,9 @@ public class DownloadUtils {
             FileUtils.writeStringToFile(file, document.toString(), "utf-8");
             return true;
         } catch (MalformedURLException e) {
-            e.printStackTrace();
+//            e.printStackTrace();
         } catch (IOException e) {
-            e.printStackTrace();
+//            e.printStackTrace();
         }
         return false;
     }
@@ -77,17 +77,17 @@ public class DownloadUtils {
         }
         catch (MalformedURLException e)
         {
-            e.printStackTrace();
+//            e.printStackTrace();
             return false;
         }
         catch (FileNotFoundException e)
         {
-            e.printStackTrace();
+//            e.printStackTrace();
             return false;
         }
         catch (IOException e)
         {
-            e.printStackTrace();
+//            e.printStackTrace();
             return false;
         }
         finally
