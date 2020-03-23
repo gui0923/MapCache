@@ -141,7 +141,7 @@ public class TianDiTuDownloadServiceImpl implements TianDiTuDownloadService {
         }
         String fileName = nginxPath + tarName;
         File file = new File(fileName);
-        System.out.println("file = " + file);
+//        System.out.println("file = " + file);
         if (file.exists()) {
             return tarName;
         } else {
