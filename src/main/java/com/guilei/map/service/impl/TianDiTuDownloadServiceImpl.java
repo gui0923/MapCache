@@ -129,4 +129,27 @@ public class TianDiTuDownloadServiceImpl implements TianDiTuDownloadService {
             return null;
         }
     }
+
+    @Override
+    public String getLocalPath(String kind, TianDiTuWmtsDTO dto) {
+        boolean isGetXml = StringUtils.equals(dto.getRequest(), "getCapabilities");
+        String tarName;
+        if (isGetXml) {
+            tarName = String.format("/SplitTif/%s/capabilities.xml", kind);
+        } else {
+            tarName = String.format("/SplitTif/%s/%d/%d/%d.png", kind, dto.getTileMatrix() + 1, dto.getTileCol(), dto.getTileRow() + 1);
+        }
+        String fileName = nginxPath + tarName;
+        File file = new File(fileName);
+        System.out.println("file = " + file);
+        if (file.exists()) {
+            return tarName;
+        } else {
+            if (!isGetXml) {
+                tarName = String.format("/SplitTif/%s/NULL.png", kind);
+                return tarName;
+            }
+            return null;
+        }
+    }
 }

@@ -45,6 +45,17 @@ public class MapCacheCtroller {
     }
 
     @CrossOrigin
+    @RequestMapping(value = "/{kind}/gwmts", method = RequestMethod.GET)
+    public String gdalWmts(@PathVariable String kind, TianDiTuWmtsDTO dto) {
+        String path = tianDiTuDownloadService.getLocalPath(kind, dto);
+        if (path == null) {
+            System.out.println("不存在  dto = " + dto);
+            return "";
+        }
+        return "forward:" + path;
+    }
+
+    @CrossOrigin
     @RequestMapping(value = "/DataServer/{key}", method = RequestMethod.GET)
     public String vecWmts(@PathVariable String key, TianDiTuDataServerDTO dto) {
         String path = tianDiTuDownloadService.getRealImagePath(key, dto);

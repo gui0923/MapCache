@@ -10,4 +10,6 @@ public interface TianDiTuDownloadService {
     String getRealImagePath(String kind, String key, TianDiTuWmtsDTO dto);
 
     String getRealImagePath(String key, TianDiTuDataServerDTO dto);
+
+    String getLocalPath(String kind, TianDiTuWmtsDTO dto);
 }
