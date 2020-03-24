@@ -137,7 +137,7 @@ public class TianDiTuDownloadServiceImpl implements TianDiTuDownloadService {
         if (isGetXml) {
             tarName = String.format("/SplitTif/%s/capabilities.xml", kind);
         } else {
-            tarName = String.format("/SplitTif/%s/%d/%d/%d.png", kind, dto.getTileMatrix() + 1, dto.getTileCol(), dto.getTileRow() + 1);
+            tarName = String.format("/SplitTif/%s/%d/%d/%d.png", kind, dto.getTileMatrix(), dto.getTileCol(), dto.getTileRow());
         }
         String fileName = nginxPath + tarName;
         File file = new File(fileName);
